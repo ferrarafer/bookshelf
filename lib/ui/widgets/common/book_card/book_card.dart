@@ -8,16 +8,19 @@ class BookCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (book.imageLinks == null) return const SizedBox.shrink();
-
     return GestureDetector(
       onTap: onTap,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: Image.network(
-          book.imageLinks!.smallThumbnail,
-          fit: BoxFit.fill,
-        ),
+        child: book.imageLinks == null
+            ? Image.asset(
+                'assets/images/no-image.jpeg',
+                fit: BoxFit.fill,
+              )
+            : Image.network(
+                book.imageLinks!.smallThumbnail,
+                fit: BoxFit.fill,
+              ),
       ),
     );
   }
