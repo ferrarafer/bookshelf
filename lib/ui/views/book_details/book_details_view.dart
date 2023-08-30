@@ -23,6 +23,7 @@ class BookDetailsView extends StackedView<BookDetailsViewModel>
     Widget? child,
   ) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20),
