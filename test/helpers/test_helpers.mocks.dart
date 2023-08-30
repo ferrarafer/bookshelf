@@ -635,15 +635,15 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
 /// See the documentation for Mockito's code generation for more information.
 class MockApiService extends _i1.Mock implements _i6.ApiService {
   @override
-  _i4.Future<Iterable<_i7.Book>> getBooks({String? genreType = r'computers'}) =>
+  _i4.Future<List<_i7.Book>> getBooks({String? searchTerm = r'computers'}) =>
       (super.noSuchMethod(
         Invocation.method(
           #getBooks,
           [],
-          {#genreType: genreType},
+          {#searchTerm: searchTerm},
         ),
-        returnValue: _i4.Future<Iterable<_i7.Book>>.value(<_i7.Book>[]),
+        returnValue: _i4.Future<List<_i7.Book>>.value(<_i7.Book>[]),
         returnValueForMissingStub:
-            _i4.Future<Iterable<_i7.Book>>.value(<_i7.Book>[]),
-      ) as _i4.Future<Iterable<_i7.Book>>);
+            _i4.Future<List<_i7.Book>>.value(<_i7.Book>[]),
+      ) as _i4.Future<List<_i7.Book>>);
 }
