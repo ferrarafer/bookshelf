@@ -1,6 +1,7 @@
 import 'package:bookshelf/app/app.locator.dart';
 import 'package:bookshelf/app/app.logger.dart';
 import 'package:bookshelf/app/app.router.dart';
+import 'package:bookshelf/fake_data/fake_book.dart';
 import 'package:bookshelf/models/book.dart';
 import 'package:bookshelf/services/api_service.dart';
 import 'package:stacked/stacked.dart';
@@ -17,7 +18,9 @@ class BooksListViewModel extends FutureViewModel<List<Book>> {
   Future<List<Book>> getBooks({String genreType = 'computers'}) async {
     _logger.i('');
 
-    return (await _api.getBooks(genreType: genreType)).toList();
+    await Future.delayed(const Duration(seconds: 1));
+
+    return FakeBook().generateFakeList(length: 12);
   }
 
   void onTap(Book book) {

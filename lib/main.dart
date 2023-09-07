@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:bookshelf/app/app.bottomsheets.dart';
 import 'package:bookshelf/app/app.dialogs.dart';
 import 'package:bookshelf/app/app.locator.dart';
 import 'package:bookshelf/app/app.router.dart';
+import 'package:flutter/material.dart';
 import 'package:session_mate/session_mate.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -19,32 +19,31 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SessionMate(
-      child: MaterialApp(
-        initialRoute: Routes.startupView,
-        onGenerateRoute: StackedRouter().onGenerateRoute,
-        navigatorKey: StackedService.navigatorKey,
-        navigatorObservers: [
-          StackedService.routeObserver,
-        ],
-        theme: ThemeData(
-          useMaterial3: true,
-          brightness: Brightness.dark,
-          textSelectionTheme: const TextSelectionThemeData(
-            cursorColor: Colors.white,
-          ),
-          inputDecorationTheme: const InputDecorationTheme(
-            border: InputBorder.none,
-            filled: true,
-            fillColor: Color(0xFF232228),
-          ),
-          scaffoldBackgroundColor: const Color(0xFF13111B),
-          textTheme: const TextTheme(
-            bodyMedium: TextStyle(fontSize: 14),
-            displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
-            titleLarge: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-            titleSmall: TextStyle(fontWeight: FontWeight.bold),
-          ),
+    return MaterialApp(
+      initialRoute: Routes.startupView,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
+      navigatorKey: StackedService.navigatorKey,
+      navigatorObservers: [
+        StackedService.routeObserver,
+      ],
+      builder: (context, child) => SessionMate(child: child!),
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: Colors.white,
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          border: InputBorder.none,
+          filled: true,
+          fillColor: Color(0xFF232228),
+        ),
+        scaffoldBackgroundColor: const Color(0xFF13111B),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(fontSize: 14),
+          displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
+          titleLarge: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+          titleSmall: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
     );

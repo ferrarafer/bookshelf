@@ -1,6 +1,5 @@
 import 'package:bookshelf/app/app.locator.dart';
 import 'package:bookshelf/models/book.dart';
-import 'package:bookshelf/ui/views/book_details/book_details_view.form.dart';
 import 'package:session_mate/session_mate.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -12,13 +11,13 @@ class BookDetailsViewModel extends FormViewModel {
   final _dialogService = locator<DialogService>();
 
   Future<void> orderBook() async {
-    if (!isFormValid) {
-      _dialogService.showDialog(
-        title: 'Form Validation',
-        description: inscriptionValidationMessage,
-      );
-      return;
-    }
+    // if (!isFormValid) {
+    //   _dialogService.showDialog(
+    //     title: 'Form Validation',
+    //     description: inscriptionValidationMessage,
+    //   );
+    //   return;
+    // }
 
     _dialogService.showDialog(
       title: 'Unexpected error',
