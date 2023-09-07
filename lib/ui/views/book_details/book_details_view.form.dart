@@ -53,7 +53,7 @@ mixin $BookDetailsView {
 
   /// Registers a listener on every generated controller that calls [model.setData()]
   /// with the latest textController values
-  void syncFormWithViewModel(FormViewModel model) {
+  void syncFormWithViewModel(FormStateHelper model) {
     inscriptionController.addListener(() => _updateFormData(model));
 
     _updateFormData(model, forceValidate: _autoTextFieldValidation);
@@ -72,7 +72,7 @@ mixin $BookDetailsView {
   }
 
   /// Updates the formData on the FormViewModel
-  void _updateFormData(FormViewModel model, {bool forceValidate = false}) {
+  void _updateFormData(FormStateHelper model, {bool forceValidate = false}) {
     model.setData(
       model.formValueMap
         ..addAll({
@@ -106,7 +106,7 @@ mixin $BookDetailsView {
   }
 }
 
-extension ValueProperties on FormViewModel {
+extension ValueProperties on FormStateHelper {
   bool get hasAnyValidationMessage => this
       .fieldsValidationMessages
       .values
@@ -144,7 +144,7 @@ extension ValueProperties on FormViewModel {
       this.fieldsValidationMessages[InscriptionValueKey];
 }
 
-extension Methods on FormViewModel {
+extension Methods on FormStateHelper {
   setInscriptionValidationMessage(String? validationMessage) =>
       this.fieldsValidationMessages[InscriptionValueKey] = validationMessage;
 
@@ -174,6 +174,7 @@ String? getValidationMessage(String key) {
 }
 
 /// Updates the fieldsValidationMessages on the FormViewModel
-void updateValidationData(FormViewModel model) => model.setValidationMessages({
+void updateValidationData(FormStateHelper model) =>
+    model.setValidationMessages({
       InscriptionValueKey: getValidationMessage(InscriptionValueKey),
     });

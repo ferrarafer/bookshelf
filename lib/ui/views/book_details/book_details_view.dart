@@ -32,10 +32,24 @@ class BookDetailsView extends StackedView<BookDetailsViewModel>
               if (book.imageLinks != null)
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                    book.imageLinks!.thumbnail,
-                    width: double.infinity,
-                    fit: BoxFit.fitWidth,
+                  child: Stack(
+                    children: [
+                      Image.network(
+                        book.imageLinks!.thumbnail,
+                        width: double.infinity,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      Positioned.fill(
+                          child: Center(
+                        child: Text(
+                          '${book.id}',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ))
+                    ],
                   ),
                 ),
               verticalSpaceMedium,

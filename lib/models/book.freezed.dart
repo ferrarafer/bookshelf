@@ -20,6 +20,7 @@ Book _$BookFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Book {
+  int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   List<String> get authors => throw _privateConstructorUsedError;
   String? get publisher => throw _privateConstructorUsedError;
@@ -46,7 +47,8 @@ abstract class $BookCopyWith<$Res> {
       _$BookCopyWithImpl<$Res, Book>;
   @useResult
   $Res call(
-      {String title,
+      {int id,
+      String title,
       List<String> authors,
       String? publisher,
       String? publishedDate,
@@ -76,6 +78,7 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? authors = null,
     Object? publisher = freezed,
@@ -91,6 +94,10 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
     Object? infoLink = freezed,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -166,7 +173,8 @@ abstract class _$$_BookCopyWith<$Res> implements $BookCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String title,
+      {int id,
+      String title,
       List<String> authors,
       String? publisher,
       String? publishedDate,
@@ -193,6 +201,7 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? authors = null,
     Object? publisher = freezed,
@@ -208,6 +217,10 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
     Object? infoLink = freezed,
   }) {
     return _then(_$_Book(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -268,7 +281,8 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
 @JsonSerializable()
 class _$_Book extends _Book {
   _$_Book(
-      {required this.title,
+      {this.id = 0,
+      required this.title,
       required final List<String> authors,
       this.publisher,
       this.publishedDate,
@@ -288,6 +302,9 @@ class _$_Book extends _Book {
 
   factory _$_Book.fromJson(Map<String, dynamic> json) => _$$_BookFromJson(json);
 
+  @override
+  @JsonKey()
+  final int id;
   @override
   final String title;
   final List<String> _authors;
@@ -340,7 +357,7 @@ class _$_Book extends _Book {
 
   @override
   String toString() {
-    return 'Book(title: $title, authors: $authors, publisher: $publisher, publishedDate: $publishedDate, description: $description, industryIdentifiers: $industryIdentifiers, pageCount: $pageCount, printType: $printType, categories: $categories, imageLinks: $imageLinks, language: $language, previewLink: $previewLink, infoLink: $infoLink)';
+    return 'Book(id: $id, title: $title, authors: $authors, publisher: $publisher, publishedDate: $publishedDate, description: $description, industryIdentifiers: $industryIdentifiers, pageCount: $pageCount, printType: $printType, categories: $categories, imageLinks: $imageLinks, language: $language, previewLink: $previewLink, infoLink: $infoLink)';
   }
 
   @override
@@ -348,6 +365,7 @@ class _$_Book extends _Book {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Book &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality().equals(other._authors, _authors) &&
             (identical(other.publisher, publisher) ||
@@ -378,6 +396,7 @@ class _$_Book extends _Book {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       title,
       const DeepCollectionEquality().hash(_authors),
       publisher,
@@ -408,7 +427,8 @@ class _$_Book extends _Book {
 
 abstract class _Book extends Book {
   factory _Book(
-      {required final String title,
+      {final int id,
+      required final String title,
       required final List<String> authors,
       final String? publisher,
       final String? publishedDate,
@@ -425,6 +445,8 @@ abstract class _Book extends Book {
 
   factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
 
+  @override
+  int get id;
   @override
   String get title;
   @override

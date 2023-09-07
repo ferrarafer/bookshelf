@@ -23,10 +23,10 @@ class BooksListView extends StackedView<BooksListViewModel> {
                 ? GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 30,
-                      mainAxisSpacing: 20,
-                      childAspectRatio: 0.7,
+                      crossAxisCount: 6,
+                      crossAxisSpacing: 5,
+                      mainAxisSpacing: 5,
+                      childAspectRatio: 0.4,
                     ),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 30,

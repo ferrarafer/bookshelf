@@ -11,6 +11,7 @@ class Book with _$Book {
   Book._();
 
   factory Book({
+    @Default(0) int id,
     required String title,
     required List<String> authors,
     String? publisher,
