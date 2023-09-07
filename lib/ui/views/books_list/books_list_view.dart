@@ -14,6 +14,7 @@ class BooksListView extends StackedView<BooksListViewModel> {
     Widget? child,
   ) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Bookshelf')),
       body: SafeArea(
         child: viewModel.isBusy
             ? const Center(
